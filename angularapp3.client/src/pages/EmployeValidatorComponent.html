@@ -1,0 +1,37 @@
+<form [formGroup]="employeeForm" (ngSubmit)="verifyEmployee(dialogTemplate)" class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Employee ID</mat-label>
+    <input matInput type="number" formControlName="EmployeeID" placeholder="Employee ID">
+    <mat-error *ngIf="employeeForm.get('EmployeeID')?.hasError('required')">
+      Employee ID is required
+    </mat-error>
+    <mat-error *ngIf="employeeForm.get('EmployeeID')?.hasError('pattern')">
+      Employee ID must be a number
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Company Name</mat-label>
+    <input matInput type="text" formControlName="CompanyName" placeholder="Company Name">
+    <mat-error *ngIf="employeeForm.get('CompanyName')?.hasError('required')">
+      Company Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Validation Code</mat-label>
+    <input matInput type="text" formControlName="ValidationCode" placeholder="Validation Code">
+    <mat-error *ngIf="employeeForm.get('ValidationCode')?.hasError('required')">
+      Validation Code is required
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid">Verify</button>
+</form>
+
+<ng-template #dialogTemplate>
+  <h2 mat-dialog-title>{{ dialogMessage }}</h2>
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+  </mat-dialog-actions>
+</ng-template>
