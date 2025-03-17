@@ -1,0 +1,37 @@
+<div class="form-container">
+  <h2>Employee Verification</h2>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="verifyEmployee()">
+    <div class="input-field">
+      <label>Employee ID</label>
+      <input type="number" formControlName="EmployeeID" />
+      <span class="error" *ngIf="employeeForm.get('EmployeeID')?.invalid && employeeForm.get('EmployeeID')?.touched">
+        Employee ID is required
+      </span>
+    </div>
+
+    <div class="input-field">
+      <label>Company Name</label>
+      <input type="text" formControlName="CompanyName" />
+      <span class="error" *ngIf="employeeForm.get('CompanyName')?.invalid && employeeForm.get('CompanyName')?.touched">
+        Company Name is required
+      </span>
+    </div>
+
+    <div class="input-field">
+      <label>Validation Code</label>
+      <input type="text" formControlName="ValidationCode" />
+      <span class="error" *ngIf="employeeForm.get('ValidationCode')?.invalid && employeeForm.get('ValidationCode')?.touched">
+        Validation Code is required
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="employeeForm.invalid">Verify</button>
+  </form>
+</div>
+
+<!-- Dialog -->
+<div class="dialog" [class.active]="showDialog">
+  <h3>{{ dialogMessage }}</h3>
+  <button (click)="closeDialog()">Close</button>
+</div>

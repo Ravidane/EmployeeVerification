@@ -1,0 +1,13 @@
+@EmployeeVerification.Server_HostAddress = http://localhost:5022
+
+POST {{EmployeeVerification.Server_HostAddress}}/api/verify-employment/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "EmployeeID": 1,
+    "CompanyName": "Apple",
+    "ValidationCode": "ABC123"
+}
+
+###

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Dialog Box</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+
+  <h2>Basic Dialog Box Example</h2>
+  
+  <button onclick="openDialog()">Open Dialog</button>
+
+  <dialog id="myDialog" style="padding: 20px; border: none; border-radius: 8px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);">
+    <h3>Employee Verification</h3>
+    <p>Employee verified successfully!</p>
+    <button onclick="closeDialog()">Close</button>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('myDialog');
+
+    function openDialog() {
+      dialog.showModal(); // Opens the dialog as a modal
+    }
+
+    function closeDialog() {
+      dialog.close(); // Closes the dialog
+    }
+  </script>
+
+</body>
+</html>
